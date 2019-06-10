@@ -1,0 +1,7 @@
+[package]
+name = "time-fix-stat"
+version = "0.1.0"
+authors = ["varygin <varygin@protei.ru>"]
+edition = "2018"
+
+[dependencies]
