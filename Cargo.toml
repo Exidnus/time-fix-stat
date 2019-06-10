@@ -5,3 +5,4 @@ authors = ["varygin <varygin@protei.ru>"]
 edition = "2018"
 
 [dependencies]
+rouille = "3.0.0"
