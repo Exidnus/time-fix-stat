@@ -11,5 +11,13 @@ CREATE DATABASE time_fix_stat
 
 \connect time_fix_stat;
 
-CREATE SCHEMA IF NOT exists time_fix_stat
+CREATE SCHEMA IF NOT EXISTS time_fix_stat
     AUTHORIZATION time_fix_stat_user;
+
+CREATE TABLE IF NOT EXISTS time_fix_stat.time_fix_stat
+(
+    id          SERIAL PRIMARY KEY,
+    user_id     INTEGER NOT NULL,
+    activity_id INTEGER NOT NULL,
+    day         DATE
+);
