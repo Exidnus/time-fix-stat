@@ -36,10 +36,15 @@ fn handle_request(request: &Request) -> Response {
     )
 }
 
+const SELECT: &str = "SELECT activity_name, day, minute FROM time_fix_stat.time_fix_stat \
+                        WHERE user_id = $1";
+
 fn construct_stat(conn: &Connection, user_id: u32) -> HashMap<String, HashMap<u8, u16>> {
-    let transaction = conn.transaction().expect("Fatal error: can't create transaction");
-    let result: HashMap<String, HashMap<u8, u16>> = HashMap::new();
-    for row in transaction.query("", &[]) {}
+    let mut result: HashMap<String, HashMap<u8, u16>> = HashMap::new();
+    for row in conn.query(SELECT, &[user_id]).expect("Can't execute select") {
+        let activity_name: String = row.get(0);
+        let entry = result.entry(activity_name);
+    }
 
     result
 }
