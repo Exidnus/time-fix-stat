@@ -1,8 +1,11 @@
+extern crate postgres;
 #[macro_use]
 extern crate rouille;
 
 use rouille::Request;
 use rouille::Response;
+
+//example https://github.com/tomaka/rouille/blob/master/examples/database.rs
 
 fn main() {
     rouille::start_server("127.0.0.1:4545", move |request| {
