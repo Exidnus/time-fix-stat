@@ -16,8 +16,9 @@ CREATE SCHEMA IF NOT EXISTS time_fix_stat
 
 CREATE TABLE IF NOT EXISTS time_fix_stat.time_fix_stat
 (
-    id          SERIAL PRIMARY KEY,
-    user_id     INTEGER NOT NULL,
-    activity_id INTEGER NOT NULL,
-    day         DATE
+    id            SERIAL PRIMARY KEY,
+    user_id       INTEGER NOT NULL,
+    activity_name TEXT    NOT NULL,
+    day           DATE    NOT NULL,
+    minute        INTEGER NOT NULL
 );
