@@ -42,8 +42,11 @@ const SELECT: &str = "SELECT activity_name, day, minute FROM time_fix_stat.time_
 fn construct_stat(conn: &Connection, user_id: u32) -> HashMap<String, HashMap<u8, u16>> {
     let mut result: HashMap<String, HashMap<u8, u16>> = HashMap::new();
     for row in conn.query(SELECT, &[user_id]).expect("Can't execute select") {
-        let activity_name: String = row.get(0);
-        let entry = result.entry(activity_name);
+        ;
+        let day_to_minutes = result
+            .entry(row.get(0))
+            .or_insert(HashMap::new());
+        day_to_minutes.insert(row.get(1), row.get(2));
     }
 
     result
