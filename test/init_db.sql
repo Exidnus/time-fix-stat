@@ -22,3 +22,8 @@ CREATE TABLE IF NOT EXISTS time_fix_stat.time_fix_stat
     day           DATE    NOT NULL,
     minute        INTEGER NOT NULL
 );
+
+-- INSERT INTO time_fix_stat.time_fix_stat (user_id, activity_name, day, minute) VALUES
+-- (1, 'work', '2019-01-02', 120),
+-- (1, 'work', '2019-01-03', 50),
+-- (1, 'home', '2019-01-03', 40);
